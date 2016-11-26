@@ -8,10 +8,11 @@ warnings_are_errors: false
 before_install:
  - brew update
  - brew tap homebrew/science
- - brew install homebrew/science/Elemental --HEAD
- - brew --prefix homebrew/science/Elemental
  - brew install Caskroom/cask/xquartz
  - brew install r
+ - brew install mpich
+ - brew install homebrew/science/Elemental --HEAD
+ - brew --prefix homebrew/science/Elemental
  
 install:
  - R CMD build --no-build-vignettes --no-manual
