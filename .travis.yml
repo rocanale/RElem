@@ -1,22 +1,11 @@
 language: r
-
-compiler:
- - gcc
+os:
+ - osx
 
 warnings_are_errors: false
 
 before_install:
- - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
- - sudo apt-get update -qq -y
- - sudo apt-get install -qq -y gcc-5 g++-5 gfortran-5 libstdc++-5-dev
- - sudo apt-get install -q mpich2 libmpich2-3 libmpich2-dev;
- - curl https://cmake.org/files/v3.3/cmake-3.3.2-Linux-x86_64.tar.gz | sudo tar -x -z --strip-components 1 -C /usr
- - git clone git://github.com/elemental/Elemental.git
- - cd Elemental
- - git checkout aa0d2f8
- - mkdir build && cd build
- - cmake .. -DCMAKE_CXX_COMPILER=g++-5 -DCMAKE_C_COMPILER=gcc-5 -DCMAKE_Fortran_COMPILER=gfortran-5 -DCMAKE_INSTALL_PREFIX=~/local/El;
- - make -j2 && sudo make install
- - cd ../..
- - rm -rf Elemental
- - export LD_LIBRARY_PATH=~/local/El/lib
+ - brew update
+ - brew tap homebrew/science
+ - brew install homebrew/science/Elemental --HEAD
+ 
