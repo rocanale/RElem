@@ -1,6 +1,7 @@
 language: c
 os:
  - osx
+osx_image: xcode8.1
 
 warnings_are_errors: false
 
@@ -9,7 +10,12 @@ before_install:
  - brew tap homebrew/science
  - brew install homebrew/science/Elemental --HEAD
  - brew --prefix homebrew/science/Elemental
+ - brew install Caskroom/cask/xquartz
+ - brew install r
  
+install:
+ - R CMD build --no-build-vignettes --no-manual
 
-
+script:
+ - R CMD check $(ls -1t *.tar.gz | head -n 1) --no-build-vignettes --no-manual --as-cran
  
