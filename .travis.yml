@@ -1,4 +1,4 @@
-language: r
+language: c
 os:
  - osx
 
@@ -8,4 +8,8 @@ before_install:
  - brew update
  - brew tap homebrew/science
  - brew install homebrew/science/Elemental --HEAD
+ - brew --prefix homebrew/science/Elemental
+ 
+
+
  
